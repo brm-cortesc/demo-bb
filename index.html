@@ -30,56 +30,68 @@
 
       </div>
       
-      <div class="row">
+      <div class="row row-render">
 
-        <div class="col-lg-4">
+      <!--  <div class="col-lg-4">-->
 
-          <div class="thumbnail">
-            <img class="block-center" src="images/book-placeholder.png">
-            <div class="caption">
-              <h3>Nombre Libro</h3>
-              <small>Autor<small>
-              <p>resumen</p>
-              <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-            </div>
+      <!--    <div class="thumbnail">-->
+      <!--      <img class="block-center" src="images/book-placeholder.png">-->
+      <!--      <div class="caption">-->
+      <!--        <h3>Nombre Libro</h3>-->
+      <!--        <small>Autor<small>-->
+      <!--        <p>resumen</p>-->
+      <!--        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
+      <!--      </div>-->
 
-          </div>
+      <!--    </div>-->
 
-        </div>
+      <!--  </div>-->
 
-        <div class="col-lg-4">
+      <!--  <div class="col-lg-4">-->
 
-          <div class="thumbnail">
-            <img class="block-center" src="images/book-placeholder.png">
-            <div class="caption">
-              <h3>Nombre Libro</h3>
-              <small>Autor<small>
-              <p>resumen</p>
-              <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-            </div>
+      <!--    <div class="thumbnail">-->
+      <!--      <img class="block-center" src="images/book-placeholder.png">-->
+      <!--      <div class="caption">-->
+      <!--        <h3>Nombre Libro</h3>-->
+      <!--        <small>Autor<small>-->
+      <!--        <p>resumen</p>-->
+      <!--        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
+      <!--      </div>-->
 
-          </div>
+      <!--    </div>-->
 
-        </div>
+      <!--  </div>-->
 
-        <div class="col-lg-4">
+      <!--  <div class="col-lg-4">-->
 
-          <div class="thumbnail">
-            <img class="block-center" src="images/book-placeholder.png">
-            <div class="caption">
-              <h3>Nombre Libro</h3>
-              <small>Autor<small>
-              <p>resumen</p>
-              <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-            </div>
+      <!--    <div class="thumbnail">-->
+      <!--      <img class="block-center" src="images/book-placeholder.png">-->
+      <!--      <div class="caption">-->
+      <!--        <h3>Nombre Libro</h3>-->
+      <!--        <small>Autor<small>-->
+      <!--        <p>resumen</p>-->
+      <!--        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
+      <!--      </div>-->
 
-          </div>
+      <!--    </div>-->
 
-        </div>
+      <!--  </div>-->
 
         
-      </div>
+      <!--</div>-->
     </div>
+    
+    <!-- Templates -->
+	<script type="text/html" id="libros-template">
+	
+	 <% _.each(NoteStore, function(libro) { %>
+    		<div class="slider">
+    			/*<img src="<%= media$thumbnail[1].url %>">*/
+    				<%= libro.title %>
+    				<%= libro.authors %>
+    		</div>
+		 <% }); %>
+	</script>
       
 
     
@@ -87,11 +99,13 @@
       <!--LibreriasJS-->
       <script src="js/libs/jquery.js"></script>
       <script src="js/libs/json2.js"></script>
-      <script src="js/libs/underscore.min.js"></script>
-      <script src="js/libs/backbone.min.js"></script>
-      <script src="js/libs/bootstrap.min.js"></script>
+      <script src="js/libs/underscore-min.js"></script>
+      <script src="js/libs/backbone-min.js"></script>
+      <!--<script src="js/libs/bootstrap.min.js"></script>-->
       
       <!-- AppJS -->
+      
+      <script src="js/model.js"></script>
 
   </body>
 </html>
