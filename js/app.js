@@ -1,17 +1,11 @@
 var pokemon = Backbone.Model.extend({});
 
- // url: 'https://www.googleapis.com/books/v1/volumes?q=python&maxResults=10&startIndex=20&fields=totalItems,items%28id,volumeInfo/title,volumeInfo/subtitle,volumeInfo/authors,volumeInfo/publishedDate,volumeInfo/description,volumeInfo/imageLinks%29',
-
 var Pokedex = Backbone.Collection.extend({
     model: pokemon,
     url: 'pokemons.json',
     parse: function( response ) {
         return response;
     }
-
-    // id: function (id) {
-    //   console.log(this.id);
-    // },
 });
 
 
@@ -56,16 +50,6 @@ var viewPokedex = Backbone.View.extend({
 
     }
 
-   // id: function (e) {
-   //  e.preventDefault();
-
-   //  this.collection.each( function(index) {
-
-   //    console.log(index);
-
-   //  });
-
-   // }
    
 
 });
@@ -83,32 +67,16 @@ var viewPokemon = Backbone.View.extend({
       this.collection = new Pokedex();
       // Fetch the collection and call render() method
       var that = this;
-
-
-     //  this.collection.each( function(index) {
-
-     //    var hola = this.model.get("name");
-     //    console.log(hola)
-
-     // });
-
-
       this.collection.fetch({
         success: function () {
             that.render();
-            that.collection.each( function(index) {
-
-      // console.log(index);
-        that.$el.html(that.template({ pokemon: index }));
-
-    });
         }
       });
-   },   
+   },  
    
    render: function() {
         // Fill the html with the template and the collection
-        this.$el.html(this.template({ pokemon: this.collection[1] }));
+        this.$el.html(this.template({ Pokemon: this.collection}));
         // this.$el.html('hola');
         return this
     }
