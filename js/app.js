@@ -44,7 +44,7 @@ var viewPokedex = Backbone.View.extend({
 
     display: function (e) {
 
-    var id = $(e.target).attr('data-id');
+      var id = $(e.target).attr('data-id');
 
       appRouter.navigate('pokemon/'+id, true);
 
@@ -67,16 +67,21 @@ var viewPokemon = Backbone.View.extend({
       this.collection = new Pokedex();
       // Fetch the collection and call render() method
       var that = this;
+
       this.collection.fetch({
         success: function () {
             that.render();
         }
       });
-   },  
+
+      // this.collection
+
+    },
    
    render: function() {
         // Fill the html with the template and the collection
-        this.$el.html(this.template({ Pokemon: this.collection}));
+        // this.$el.html(this.template({ Pokemon: hola}));
+        this.$el.html(this.template({ Pokemon: this.collection.toJSON() }));
         // this.$el.html('hola');
         return this
     }
