@@ -7,11 +7,11 @@ var Pokedex = Backbone.Collection.extend({
     url: 'pokemons.json',
     parse: function( response ) {
         return response;
-    },
+    }
 
-    id: function (id) {
-      console.log(this.id);
-    },
+    // id: function (id) {
+    //   console.log(this.id);
+    // },
 });
 
 
@@ -23,7 +23,7 @@ var viewPokedex = Backbone.View.extend({
   template: _.template($('#pokedex-template').html()),
 
    events: {
-    'click .btn-primary': 'id' 
+    'click .btn-primary': 'display' 
   },
    
    
@@ -48,10 +48,24 @@ var viewPokedex = Backbone.View.extend({
         return this
     },
 
-   id: function (e) {
-     e.preventDefault();
-     console.log(this.collection);
-   }
+    display: function (e) {
+
+    var id = $(e.target).attr('data-id');
+
+      appRouter.navigate('pokemon/'+id, true);
+
+    }
+
+   // id: function (e) {
+   //  e.preventDefault();
+
+   //  this.collection.each( function(index) {
+
+   //    console.log(index);
+
+   //  });
+
+   // }
    
 
 });
@@ -71,22 +85,33 @@ var viewPokemon = Backbone.View.extend({
       var that = this;
 
 
+     //  this.collection.each( function(index) {
+
+     //    var hola = this.model.get("name");
+     //    console.log(hola)
+
+     // });
+
 
       this.collection.fetch({
         success: function () {
             that.render();
+            that.collection.each( function(index) {
+
+      // console.log(index);
+        that.$el.html(that.template({ pokemon: index }));
+
+    });
         }
       });
-   },
-
+   },   
    
-   
-   // render: function() {
-   //      // Fill the html with the template and the collection
-   //      this.$el.html(this.template({ pokemon: this.collection.toJSON() }));
-   //      // this.$el.html('hola');
-   //      return this
-   //  }
+   render: function() {
+        // Fill the html with the template and the collection
+        this.$el.html(this.template({ pokemon: this.collection[1] }));
+        // this.$el.html('hola');
+        return this
+    }
    
 
 });
@@ -97,7 +122,7 @@ var pokeRouter = Backbone.Router.extend({
 
         '': 'home',
 
-        'pokemon': 'pokemon' 
+        'pokemon/:id': 'pokemon' 
     },
 
     initialize: function () {
@@ -105,7 +130,7 @@ var pokeRouter = Backbone.Router.extend({
       this.loadView(new viewPokedex());
     },
 
-    pokemon: function (id) {
+    pokemon: function () {
 
       // this.view = new viewPokemon();
       this.loadView(new viewPokemon());

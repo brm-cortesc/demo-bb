@@ -68,7 +68,7 @@
                     <div class="caption">
                       <h3><%= pokemon.name %></h3>
                       <small><%= pokemon.species %></small>
-                      <p><a class="btn btn-primary" role="button">Button</a> </p>
+                      <p><a data-id="<%= pokemon.id %>" class="btn btn-primary" role="button">Button</a> </p>
                     
                     </div>
 
@@ -80,23 +80,33 @@
 
    <script type="text/template" id="pokemon-template">
   
-   <% _.each(pokemon, function(pokemon) { %>
-        <div class="col-lg-6">
-                 
-                 <img class="block-center" src="images/pokemons/<%= pokemon.name %>.png">
+     <% _.each(pokemon, function(pokemon) { %>
+          <div class="col-lg-6">
+                   
+                   <img class="block-center" src="images/pokemons/<%= pokemon.name %>.png">
 
-                 <h2> <%= pokemon.name %> </h2>
+                   <h2> <%= pokemon.name %> </h2>
 
-                 <p class="stats">
-                   tururururu
-                 </p>
-                 
-               </div>
-               <div class="col-lg-6">
-                <h3> ejeje </h3>
-               </div>
+                   <p class="stats">
+                     <strong> tipo </strong> <%= pokemon.name %>
+                     <strong> altura </strong> <%= pokemon.height %>
+                     <strong> peso </strong> <%= pokemon.weight %>
+                     <strong> habilidades </strong> <%= pokemon.abilities %>
+                     <strong> habilidades </strong> <%= pokemon.abilities %>
+                   </p>
 
-     <% }); %>
+                   <p>
+                   <%= pokemon.stats %>
+                   </p>
+                   
+                 </div>
+                 <div class="col-lg-6">
+                  <h3> Evoluciones </h3>
+
+                  <%= pokemon.evolution %>
+                 </div>
+
+       <% }); %>
   </script>
       
 
