@@ -31,14 +31,22 @@ var viewPokedex = Backbone.View.extend({
       });
    },
    
+   events:{
+      "click":"pokemonSelected",  
+   },
    
    render: function() {
         // Fill the html with the template and the collection
         this.$el.html(this.template({ pokemon: this.collection.toJSON() }));
         // this.$el.html('hola');
         return this
-    }
+    },
    
+   pokemonSelected: function(e){
+       if(e.which === $(this).click()){
+           Pokedex.get($(this).attr('a').parent());
+       }
+   }
 
 });
 
