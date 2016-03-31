@@ -80,7 +80,7 @@
 
    <script type="text/template" id="pokemon-template">
   
-     <% _.each(pokemon, function(pokemon) { %>
+     <% _.each(Pokemon, function(pokemon) { %>
           <div class="col-lg-6">
                    
                    <img class="block-center" src="images/pokemons/<%= pokemon.name %>.png">
@@ -88,11 +88,11 @@
                    <h2> <%= pokemon.name %> </h2>
 
                    <p class="stats">
-                     <strong> tipo </strong> <%= pokemon.name %>
-                     <strong> altura </strong> <%= pokemon.height %>
-                     <strong> peso </strong> <%= pokemon.weight %>
-                     <strong> habilidades </strong> <%= pokemon.abilities %>
-                     <strong> habilidades </strong> <%= pokemon.abilities %>
+                     <strong> tipo </strong> <%= pokemon.name %><br />
+                     <strong> altura </strong> <%= pokemon.height %><br />
+                     <strong> peso </strong> <%= pokemon.weight %><br />
+                     <strong> habilidades </strong> <%= pokemon.abilities %><br />
+                     <strong> habilidades </strong> <%= pokemon.abilities %><br />
                    </p>
 
                    <p>
