@@ -19,14 +19,14 @@
         <h1 class="text-center"> BibliotecaJS </h1>
       
 
-        <div class="col-lg-4 col-lg-offset-4">
+       <!--  <div class="col-lg-4 col-lg-offset-4">
           <form class="form-inline">
             <div class="form-group has-feedback">
               <input type="text" class="form-control input-lg" id="inputSuccess4" aria-describedby="inputSuccess4Status">
               <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
             </div>
           </form>
-        </div>
+        </div> -->
 
       </div>
       
@@ -36,29 +36,68 @@
         
       </div>
 
+      <div class="row row-pokemon">
+        <!-- <div class="col-lg-6">
+          
+          <img class="block-center" src="images/book-placeholder.png">
+
+          <h2> titulo</h2>
+
+          <p class="stats">
+            turururur
+          </p>
+          
+        </div>
+        <div class="col-lg-6">
+
+        </div> -->
+        
+      </div>
+
         
 
     </div>
     
     <!-- Templates -->
-	<script type="text/template" id="pokemon-template">
-	
-	 <% _.each(pokemon, function(pokemon) { %>
+  <script type="text/template" id="pokedex-template">
+  
+   <% _.each(pokemon, function(pokemon) { %>
         <div class="col-lg-4">
              <div class="thumbnail">
-                <img class="block-center" src="images/book-placeholder.png">
+                <img class="block-center img-responsive" src="images/pokemons/<%= pokemon.name %>.jpg">
                     <div class="caption">
                       <h3><%= pokemon.name %></h3>
                       <small><%= pokemon.species %></small>
-                      <p><a href="#" class="btn btn-primary" role="button">Button</a> </p>
+                      <p><a class="btn btn-primary" role="button">Button</a> </p>
                     
                     </div>
 
               </div>
         </div>
 
-		 <% }); %>
+     <% }); %>
 	</script>
+
+   <script type="text/template" id="pokemon-template">
+  
+   <% _.each(pokemon, function(pokemon) { %>
+        <div class="col-lg-6">
+                 
+                 <img class="block-center" src="images/pokemons/<%= pokemon.name %>.png">
+
+                 <h2> <%= pokemon.name %> </h2>
+
+                 <p class="stats">
+                   tururururu
+                 </p>
+                 
+               </div>
+               <div class="col-lg-6">
+                <h3> ejeje </h3>
+               </div>
+
+     <% }); %>
+  </script>
       
 
     
